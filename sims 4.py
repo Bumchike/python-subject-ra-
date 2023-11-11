@@ -1,3 +1,5 @@
+from random import *
+
 class human:
     def __init__(self,name,work,car,home):
         self.money = 10000
@@ -8,12 +10,25 @@ class human:
         self.car = car
         self.home = home
 
-class car:
-    def __init__(self,brand,oil,strong,roshod):
-        self.brand = 0
-        self.oil = 0
-        self.strong = 0
-        self.roshod = 0
+    def get_home(self):
+        self.home = house
+
+    def get_car(self):
+        self.car = Auto()
+
+class Auto:
+    def __init__(self, brand_list):
+        self.brand = choice(list(brand_list))
+        self.oil = brand_list[self.brand]["Топливо"]
+        self.strong = brand_list[self.brand]["Сила"]
+        self.roshod = brand_list[self.brand]["Расход"]
+
+brands_of_car = {
+    "BMW":{"Топливо":100, "Сила": 100, "Расход": 6}
+    "Ferrari":{"Топливо":80, "Сила": 120, "Расход": 14}
+    "Lada":{"Топливо":50, "Сила": 40, "Расход": 10}
+
+}
 
 class house:
     def __init__(self,food,cleaness):
@@ -25,3 +40,4 @@ class job:
         self.job = 0
         self.gladness = 0
         self.salary = 0
+
