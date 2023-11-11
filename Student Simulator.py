@@ -1,4 +1,3 @@
-# Учитывайте что тут есть дз и это всё!!!!!!!!!
 import random
 
 timesday = int(0)
@@ -20,26 +19,26 @@ class student:
 
     def learn(self):
         print("учится..."
-              "Ваше счастье снизилось на 5"
-              "Ваш прогресс увеличился на 0.12"
-              "Ваша учёба поднялась на 10")
+              "\n Ваше счастье снизилось на 5"
+              "\n Ваш прогресс увеличился на 0.12"
+              "\n Ваша учёба поднялась на 10")
         self.happiness -= 5
         self.progress += 0.12
         self.learning += 10
 
     def sleep(self):
         print("спит..."
-              "Ваше счастье увеличилось на 2"
-              "Ваша учёба снизилась на 3")
+              "\n Ваше счастье увеличилось на 2"
+              "\n Ваша учёба снизилась на 3")
         self.happiness += 2
         self.learning -= 3
 
     def nich(self):
         print("отдыхает..."
-              "Ваше счастье увеличилось на 5"
-              "Ваш прогресс снизился на 0.1"
-              "Ваше количество денег снизилось на 10"
-              "Ваша учёба снизилась на 5")
+              "\n Ваше счастье увеличилось на 5"
+              "\n Ваш прогресс снизился на 0.1"
+              "\n Ваше количество денег снизилось на 10"
+              "\n Ваша учёба снизилась на 5")
         self.happiness += 5
         self.progress -= 0.1
         self.money -= 10
@@ -48,8 +47,8 @@ class student:
     def work(self):
         print("работает..."
               "Ваше счастье снизилось на 0.4"
-              "Ваш прогресс увеличился на 0.1"
-              "Ваша учёба снизилась на 1")
+              "\n Ваш прогресс увеличился на 0.1"
+              "\n Ваша учёба снизилась на 1")
         self.happiness -= 0.4
         self.progress += 0.1
         self.learning -= 1
@@ -77,6 +76,10 @@ class student:
             print("У тебя нет денег и тебе нечего кушать ")
             self.alive = False
 
+    def punishment(self):
+        self.progress -= 0.1
+        self.happiness -= 5
+
 
 
     def life(self,day):
@@ -85,29 +88,31 @@ class student:
 
         timesday = int(0)
 
-        while timesday < 5:
-            rand = random.randint(1,4)
 
-        if rand == 1:
-            player_student.learn()
-            timesday += 1
-        elif rand == 2:
-            player_student.sleep()
-            timesday += 1
-        elif rand == 3:
-            player_student.nich()
-            timesday += 1
-        elif rand == 4:
-            player_student.work()
-            timesday += 1
+        live_choice = int(input("Что будем делать сегодня?"
+                                "\n 1) Учиться"
+                                "\n 2) Спать"
+                                "\n 3) Отдохнуть"
+                                "\n 4) Поработать"
+                                "\n"))
 
-        if timesday == 5:
-            days += 1
-            player_student.vecher()
-            print("Вы уже живёте",days,"количество дней")
-
+        if live_choice == 1:
+                self.learn()
+                timesday += 1
+        elif live_choice == 2:
+                self.sleep()
+                timesday += 1
+        elif live_choice == 3:
+                self.nich()
+                timesday += 1
+        elif live_choice == 4:
+                self.work()
+                timesday += 1
         else:
-            pass
+                self.punishment()
+
+        self.alivetest()
+        self.vecher()
 
         if self.money < 50:
             print("Иди работай!")
@@ -121,7 +126,7 @@ class student:
 player_student = student(nam)
 
 
-for day in range(365):
+for day in range(7):
     if player_student.alive == False:
         break
 
