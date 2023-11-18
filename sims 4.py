@@ -1,5 +1,4 @@
 # Я НИ РАЗУ НЕ КОПИРОВАЛ С ВАШЕГО ГИТХАБА!!!!!!!! ДАЖЕ С ДЕЙС ИНДЕКСЕС!!!!!
-from random import *
 
 class human:
     def __init__(self,name,work=None,car=None,home=None):
@@ -146,7 +145,11 @@ class human:
 
         self.days_indexes(day)
 
-        dice = randint(1,4)
+        dice = int("Что вы хотите сегодня сделать?"
+                   "1 - отдохнуть"
+                   "2 - поработать"
+                   "3 - убраться"
+                   "4 - пообедать")
 
         if self.nohunger < 20:
             print("Пойду поем")
@@ -173,7 +176,7 @@ class human:
             self.chill()
 
         elif dice == 2:
-            print("Пора отдыхать!")
+            print("Пора работать!!")
             self.work()
 
         elif dice == 3:
